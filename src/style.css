@@ -1,0 +1,77 @@
+form {
+    margin-top: 10px;
+  }
+  h1 {
+    margin-left: 30px;
+    color: rgb(53, 53, 53);
+    opacity: 0.95;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+  }
+  h2 {
+    font-size: 15px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+    font-family: "Quicksand", sans-serif;
+  }
+  a {
+    text-decoration: none;
+    color: rgb(53, 53, 53);
+  }
+  a:hover {
+    color: #9329f7;
+  }
+  .container {
+    background: linear-gradient(
+      68.7deg,
+      rgb(235, 217, 221) 8%,
+      rgb(216, 174, 211) 55.4%,
+      rgb(175, 158, 230) 91.1%
+    );
+    max-width: 50%;
+    border-radius: 10px;
+  }
+  .sun-icon,
+  .smog-icon,
+  .cloud-icon {
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    padding: 10px;
+  }
+  .today-icon {
+    font-size: 60px;
+  }
+  .weather-now {
+    text-align: center;
+  }
+  .other-info {
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 15px;
+    opacity: 0.8;
+    font-family: "Poppins", sans-serif;
+  }
+  .temperature-now,
+  .conditions {
+    font-size: 20px;
+    opacity: 0.8;
+    font-family: "Poppins", sans-serif;
+  }
+  .weekly-forecast {
+    text-align: center;
+  }
+  .weekly-card {
+    background-color: rgba(209, 196, 207, 0.3);
+    padding: 30px 2px;
+    line-height: 30px;
+    font-weight: 500;
+    opacity: 0.8;
+    font-family: "Quicksand", sans-serif;
+  }
+  .footer {
+    text-align: center;
+    line-height: 50px;
+    font-size: 15px;
+    font-family: Quicksand;
+  }
