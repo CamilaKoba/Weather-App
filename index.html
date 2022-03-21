@@ -24,7 +24,73 @@
     <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
-    <h1>Hello World</h1>
+  <div class="container border p-20 mt-4 shadow">
+    <form type="text" id="city-form">
+      <input
+        type="text"
+        id="city-input"
+        placeholder="Search for a city"
+        autocomplete="off"
+      />
+      <input type="submit" value="🔍" />
+      <input type="submit" id="current-button" value="Current" />
+    </form>
+    <br />
+    <h1 id="current-city">
+      Santiago
+    </h1>
+    <h2>Sunday | Feb 13 | 20:00</h2>
+    <div class="row weather-info">
+      <div class="col-6 weather-now">
+        <div class="weather-icon">
+          <i class="fa-solid fa-sun today-icon sun-icon"></i>
+        </div>
+        <div class="temperature-now">
+          <span id="temperature"> 22</span>
+          <span class="units" id="units"
+            ><a href="#" id="celsius">°C</a> |
+            <a href="#" id="fahreinheit">°F</a></span
+          >
+        </div>
+        <div class="conditions" id="conditions">Mostly clear</div>
+      </div>
+      <div class="col-6 other-info">
+        <div class="min-max">
+          L: <span id="min">15</span>° H: <span id="max">32</span>°
+        </div>
+        <div class="feels-like">
+          Feels like: <span id="feels-like">22</span>ºC
+        </div>
+        <div class="humidity">Humidity: <span id="humidity">42%</span></div>
+        <div class="uv-index">UV Index: 0 Low</div>
+      </div>
+    </div>
+    <br />
+    <div class="row weekly-forecast m-1">
+      <div class="col border rounded m-1 shadow-sm weekly-card">
+        <strong>Mon</strong><br /><i class="fa-regular fa-sun sun-icon"></i
+        ><br />17° | 33°
+      </div>
+      <div class="col border rounded m-1 shadow-sm weekly-card">
+        <strong>Tue</strong><br /><i class="fa-regular fa-sun sun-icon"></i
+        ><br />18° | 31°
+      </div>
+      <div class="col border rounded m-1 shadow-sm weekly-card">
+        <strong>Wed</strong><br /><i class="fa-solid fa-cloud cloud-icon"></i
+        ><br />17° | 32°
+      </div>
+      <div class="col border rounded m-1 shadow-sm weekly-card">
+        <strong>Thu</strong><br /><i class="fa-solid fa-smog smog-icon"></i
+        ><br />18° | 31°
+      </div>
+      <div class="col border rounded m-1 shadow-sm weekly-card">
+        <strong>Fri</strong><br /><i class="fa-regular fa-sun sun-icon"></i
+        ><br />16° | 27°
+      </div>
+    </div>
+    <br />
+  </div>
+  <div class="footer"><a href="https://github.com/CamilaKoba/My-weather-app" target="_blank"><strong>Open-sourced code</strong></a> by Camila Koba</div>
     <script src="src/javascript.js"></script>
 </body>
 </html>
