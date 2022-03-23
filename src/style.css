@@ -57,6 +57,7 @@ form {
     font-size: 20px;
     opacity: 0.8;
     font-family: "Poppins", sans-serif;
+    text-transform: capitalize;
   }
   .weekly-forecast {
     text-align: center;
