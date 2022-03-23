@@ -1,4 +1,5 @@
-let now = new Date();
+function formatDate(timestamp){
+let now = new Date(timestamp);
 
 let currentHour = now.getHours();
 if (currentHour < 10) {
@@ -18,15 +19,16 @@ let days = [
   "Saturday"
 ];
 let currentDay = days[now.getDay()];
-let rightNow = `${currentDay} | ${currentHour}:${currentMinute}`;
-
-let currentDate = document.querySelector("h2");
-currentDate.innerHTML = rightNow;
+return `${currentDay} | ${currentHour}:${currentMinute}`;
+}
 
 function showTemperature(response) {
   let cityName = response.data.name;
   let h1 = document.querySelector("#current-city");
   h1.innerHTML = cityName;
+
+  let currentDate = document.querySelector("#date");
+  currentDate.innerHTML = formatDate(response.data.dt * 1000);
 
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
@@ -64,7 +66,6 @@ function submitCity(event) {
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", submitCity);
 
-//Current Button
 function searchLocation(position) {
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=8492ffe2189991cafb005196b47eaa96`;
   axios.get(url).then(showTemperature);
