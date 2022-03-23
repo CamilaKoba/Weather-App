@@ -53,6 +53,10 @@ function showTemperature(response) {
   let humidity = response.data.main.humidity;
   let currentHumidity = document.querySelector("#humidity");
   currentHumidity.innerHTML = `${humidity}%`;
+
+  let weatherIcon = document.querySelector("#main-weather-icon");
+  weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
 }
 function searchCity(city) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=8492ffe2189991cafb005196b47eaa96`;
