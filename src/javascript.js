@@ -56,6 +56,10 @@ function showTemperature(response) {
   let currentHumidity = document.querySelector("#humidity");
   currentHumidity.innerHTML = `${humidity}%`;
 
+  let windSpeed = response.data.wind.speed;
+  let currentWindSpeed = document.querySelector("#windspeed")
+  currentWindSpeed.innerHTML = Math.round(windSpeed);
+
   let weatherIcon = document.querySelector("#main-weather-icon");
   weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
