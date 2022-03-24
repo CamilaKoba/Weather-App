@@ -15,8 +15,8 @@ form {
   }
   h2 {
     text-align: center;
-    font-size: 17px;
-    margin-bottom: 10px;
+    font-size: 18px;
+    margin-bottom: 8px;
     opacity: 0.8;
     font-family: "Quicksand", sans-serif;
   }
@@ -52,6 +52,7 @@ form {
   .weather-now {
     text-align: center;
     padding-bottom: 20px;
+    padding-right: 0px;
   }
   .other-info {
     font-size: 19.5px;
