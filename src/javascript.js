@@ -40,15 +40,21 @@ function showTemperature(response) {
   let conditions = document.querySelector("#conditions");
   conditions.innerHTML = weatherDescription;
 
-  let minTemperature = Math.round(response.data.main.temp_min);
+celsiusMinTemperature =response.data.main.temp_min;
+
+  let minTemperature = Math.round(celsiusMinTemperature);
   let min = document.querySelector("#min");
   min.innerHTML = minTemperature;
 
-  let maxTemperature = Math.round(response.data.main.temp_max);
+celsiusMaxTemperature = response.data.main.temp_max;
+
+  let maxTemperature = Math.round(celsiusMaxTemperature);
   let max = document.querySelector("#max");
   max.innerHTML = maxTemperature;
 
-  let temperatureFeelsLike = Math.round(response.data.main.feels_like);
+  celsiusFeelsLike = response.data.main.feels_like;
+
+  let temperatureFeelsLike = Math.round(celsiusFeelsLike);
   let feelsLike = document.querySelector("#feels-like");
   feelsLike.innerHTML = temperatureFeelsLike;
 
@@ -91,17 +97,41 @@ function displayFahreinheit(event){
     let fahreinheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
     let temperatureElement = document.querySelector("#temperature");
     temperatureElement.innerHTML = fahreinheitTemperature;
+
+    let fahreinheitMinTemperature = Math.round((celsiusMinTemperature * 9) / 5 + 32);
+    let min = document.querySelector("#min");
+    min.innerHTML = fahreinheitMinTemperature;
+
+    let fahreinheitMaxTemperature = Math.round((celsiusMaxTemperature * 9) / 5 + 32);
+    let max = document.querySelector("#max");
+    max.innerHTML = fahreinheitMaxTemperature;
+
+    let fahreinheitFeelsLike = Math.round((celsiusFeelsLike * 9) / 5 + 32);
+    let feelsLike = document.querySelector("#feels-like");
+    feelsLike.innerHTML = fahreinheitFeelsLike;
 }
 function displayCelsius(event){
     event.preventDefault();
     let temperatureElement = document.querySelector("#temperature");
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+    let min = document.querySelector("#min");
+    min.innerHTML = Math.round(celsiusMinTemperature);
+
+    let max = document.querySelector("#max");
+    max.innerHTML = Math.round(celsiusMaxTemperature);
+
+    let feelsLike = document.querySelector("#feels-like");
+    feelsLike.innerHTML = Math.round(celsiusFeelsLike);
 }
 
 let fahreinheit = document.querySelector("#fahreinheit");
 fahreinheit.addEventListener("click", displayFahreinheit);
 
 let celsiusTemperature = null;
+let celsiusMinTemperature = null;
+let celsiusMaxTemperature = null;
+let celsiusFeelsLike = null;
 
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", displayCelsius);
