@@ -4,6 +4,7 @@ form {
   }
   h1 {
     margin-left: 25px;
+    margin-right: 25px;
     margin-top: 16px;
     color: rgb(53, 53, 53);
     opacity: 0.95;
@@ -15,7 +16,7 @@ form {
   h2 {
     text-align: center;
     font-size: 17px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     opacity: 0.8;
     font-family: "Quicksand", sans-serif;
   }
@@ -46,7 +47,7 @@ form {
     padding: 10px;
   }
   .weather-info{
-      padding-bottom: 3px;
+      margin: 10px 0px 10px 0px;
   }
   .weather-now {
     text-align: center;
