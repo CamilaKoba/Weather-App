@@ -30,7 +30,9 @@ function showTemperature(response) {
   let currentDate = document.querySelector("#date");
   currentDate.innerHTML = formatDate(response.data.dt * 1000);
 
-  let temperature = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+
+  let temperature = Math.round(celsiusTemperature);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = temperature;
 
@@ -56,7 +58,6 @@ function showTemperature(response) {
 
   let weatherIcon = document.querySelector("#main-weather-icon");
   weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-
 }
 function searchCity(city) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=8492ffe2189991cafb005196b47eaa96`;
@@ -80,3 +81,25 @@ function getCurrentLocation(event) {
 }
 let currentLocationButton = document.querySelector("#current-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+function displayFahreinheit(event){
+    event.preventDefault();
+    let fahreinheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = fahreinheitTemperature;
+}
+function displayCelsius(event){
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let fahreinheit = document.querySelector("#fahreinheit");
+fahreinheit.addEventListener("click", displayFahreinheit);
+
+let celsiusTemperature = null;
+
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", displayCelsius);
+
+searchCity("Santiago");
