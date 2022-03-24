@@ -63,7 +63,7 @@ form {
     font-family: "Poppins", sans-serif;
     padding-left: 23px;
     padding-right: 10px;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
   }
   .temperature-now,
   .conditions {
