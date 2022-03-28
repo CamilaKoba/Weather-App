@@ -39,13 +39,6 @@ form {
     padding: 5px;
     padding-bottom: 5px;
   }
-  .sun-icon,
-  .smog-icon,
-  .cloud-icon {
-    color: rgb(255, 255, 255);
-    font-size: 30px;
-    padding: 10px;
-  }
   .weather-info{
       margin: 10px 0px 10px 0px;
   }
@@ -83,11 +76,16 @@ form {
   }
   .weekly-card {
     background-color: rgba(209, 196, 207, 0.3);
-    padding: 30px 2px;
+    padding: 10px 2px;
     line-height: 30px;
     font-weight: 500;
     opacity: 0.8;
     font-family: "Quicksand", sans-serif;
+    transition: all 200ms ease-in-out;
+  }
+  .weekly-card:hover{
+      opacity: 0.95;
+      background-color: rgba(209, 196, 207, 0.432);
   }
   .footer {
     text-align: center;
