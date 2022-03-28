@@ -22,6 +22,28 @@ let currentDay = days[now.getDay()];
 return `${currentDay} | ${currentHour}:${currentMinute}`;
 }
 
+function displayForecast() {
+    let forecastElement = document.querySelector("#forecast");
+  
+    let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  
+    let forecastHTML = `<div class="row m-1">`;
+    days.forEach(function (day) {
+      forecastHTML =
+        forecastHTML +
+        `
+        <div class="col border rounded m-1 shadow-sm weekly-card">
+        <strong>${day}</strong><br /><img src="https://openweathermap.org/img/wn/01d@2x.png" alt="Sunny" width="90px">
+        <br />17° | 33°
+      </div>
+    `;
+    });
+  
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+    console.log(forecastHTML);
+  }
+
 function showTemperature(response) {
   let cityName = response.data.name;
   let h1 = document.querySelector("#current-city");
@@ -137,3 +159,4 @@ let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", displayCelsius);
 
 searchCity("Santiago");
+displayForecast();
