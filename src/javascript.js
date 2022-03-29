@@ -22,26 +22,50 @@ let currentDay = days[now.getDay()];
 return `${currentDay} | ${currentHour}:${currentMinute}`;
 }
 
-function displayForecast() {
+function forecastWeekday (timestamp){
+    let now = new Date(timestamp);
+    let days = [
+        "Sun",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ];
+      let currentDay = days[now.getDay()];
+return `${currentDay}`;
+}
+
+function displayForecast(response) {
+    let dailyForecast = response.data.daily;
     let forecastElement = document.querySelector("#forecast");
   
     let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
   
     let forecastHTML = `<div class="row m-1">`;
-    days.forEach(function (day) {
+    dailyForecast.forEach(function (forecastDay, index) {
+        if (index < 5){
       forecastHTML =
         forecastHTML +
         `
         <div class="col border rounded m-1 shadow-sm weekly-card">
-        <strong>${day}</strong><br /><img src="https://openweathermap.org/img/wn/01d@2x.png" alt="Sunny" width="90px">
-        <br />17° | 33°
+        <strong>${forecastWeekday(forecastDay.dt * 1000)}</strong><br /><img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="Sunny" width="90px">
+        <br />${Math.round(forecastDay.temp.min)}° | ${Math.round(forecastDay.temp.max)}°
       </div>
-    `;
+    `;}
     });
-
     forecastHTML = forecastHTML + `</div>`;
     forecastElement.innerHTML = forecastHTML;
   }
+
+  function getForecast(coordinates){
+      console.log(coordinates);
+      let apiKey = "8492ffe2189991cafb005196b47eaa96";
+      let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
+    console.log(apiUrl);
+    axios.get(apiUrl).then(displayForecast);
+    }
 
 function showTemperature(response) {
   let cityName = response.data.name;
@@ -89,7 +113,10 @@ celsiusMaxTemperature = response.data.main.temp_max;
 
   let weatherIcon = document.querySelector("#main-weather-icon");
   weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+  getForecast(response.data.coord);
 }
+
 function searchCity(city) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=8492ffe2189991cafb005196b47eaa96`;
   axios.get(url).then(showTemperature);
@@ -158,4 +185,3 @@ let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", displayCelsius);
 
 searchCity("Santiago");
-displayForecast();
