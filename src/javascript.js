@@ -38,7 +38,7 @@ function displayForecast() {
       </div>
     `;
     });
-  
+
     forecastHTML = forecastHTML + `</div>`;
     forecastElement.innerHTML = forecastHTML;
   }
