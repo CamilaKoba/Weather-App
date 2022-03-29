@@ -51,7 +51,7 @@ function displayForecast(response) {
         `
         <div class="col border rounded m-1 shadow-sm weekly-card">
         <strong>${forecastWeekday(forecastDay.dt * 1000)}</strong><br /><img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="Sunny" width="90px">
-        <br />${Math.round(forecastDay.temp.min)}° | ${Math.round(forecastDay.temp.max)}°
+        <br /><span id="daily-min">${Math.round(forecastDay.temp.min)}</span>° | <span id="daily-max">${Math.round(forecastDay.temp.max)}</span>°
       </div>
     `;}
     });
